@@ -5,44 +5,56 @@ html {
 
 body {
 	height: 100%;
-	background-color: #eeeeee;
+	background-color: #31AAB7;
 	color: #222;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 }
 
 .wrapper {
-  min-height: 95%;
+	min-height: 80%;
   margin-bottom: -100px;
   padding-bottom: 100px;
 }
 
-footer {
-  height: 100px;
+footer{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
 }
 
-/* dear god don't pick these colors */
-.colors-1 {
-	background-color: #fad3a0;
-}
-.colors-1 .navbar {
-	background-color: #ac7daa;
+.wave {
+	margin-bottom: -1px;
+	overflow: hidden;
 }
 
-/* these colors are better if you like the purple navbar */
-.colors-2 .navbar {
-	background-color: #632089;
+.wave img {
+	display: block;
+	margin-left: -1%;
+	width: 102%;
 }
 
-.colors-3 .navbar {
-	background-color: #4D394B;
+.content-wave{
+	margin-top: -1px;
+	background-color: #414141;
+	height: 200px;
+}
+
+.content-wave p{
+	padding-top: 60px;
+	color: #fff;
+	font-size: 1.4rem;
+	text-align: center;
 }
 
 .navbar {
-	background-color: #204489;
+	background-color: #ECECEC;
+	height: 105px;
 	box-shadow: 0 4px 8px rgba(0,0,0,.25);
 	float: center;
 }
+
 .navbar a {
 	color: #fff;
 }
@@ -50,7 +62,6 @@ footer {
 .navbar-brand img  {
   margin-left: auto;
   margin-right: auto;
-	height: 25px;
 }
 .navbar-brand {
   margin-left: auto !important;
@@ -60,13 +71,14 @@ footer {
 }
 
 .main-content {
-	margin-top: 100px;
+	margin-top: 150px;
 }
 
 .standup-date {
 	margin-bottom: 20px;
 }
 .date h2 {
+	color: #414141;
 	font-size: 2.2rem;
 	font-weight: 300;
 	margin: 0;
@@ -76,6 +88,9 @@ footer {
 }
 .date-picker {
 	text-align: right;
+}
+.date-picker a {
+	color: #fff;
 }
 .todays-date {
 	border-left: 1px solid #888;
@@ -90,7 +105,7 @@ footer {
 }
 
 .standup-card-wrap /* hack because bootstrap is dumb */ {
-	background-color: #fff;
+	background-color: #ECECEC;
 	border-radius: 2px;
 	box-shadow: 0 1px 3px rgba(0,0,0,.2);
 	display: block;
@@ -106,7 +121,8 @@ footer {
 	margin-bottom: 15px;
 }
 .standup-card h2 {
-	font-size: 1.6rem;
+	color: #414141;
+	font-size: 1.7rem;
 	font-weight: 700;
 	margin-bottom: 10px;
 	margin-top: 0;
@@ -118,8 +134,7 @@ footer {
 }
 
 .name-section h2 {
-	margin-top:10px;
-	margin-bottom: 2px;
+	margin: 10px 0 2px -30px;
 }
 .name-section h3 {
 	font-size: 1.6rem;
@@ -127,7 +142,6 @@ footer {
 }
 
 .user-avatar {
-	background-color: green;
 	border-radius: 25px;
 	display: inline-block;
 	float: left;
@@ -145,16 +159,20 @@ footer {
 	margin-right: 10px;
 }
 
+.name-section {
+	border-left: 5px solid #414141;
+}
 .yesterday-section {
-	border-left: 3px solid #70aacf;
+	border-left: 5px solid #3167B7;
 }
-
 .today-section {
-	border-left: 3px solid #86cf70;
+	border-left: 5px solid #52992F;
 }
-
 .blocks-section {
-	border-left: 3px solid #cf7070;
+	border-left: 5px solid #B73E31;
+}
+.shoutouts-section {
+	border-left: 5px solid #E9D160;
 }
 
 .vacation {

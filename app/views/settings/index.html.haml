@@ -2,7 +2,7 @@
   .text-center
     - if @settings.nil?
       = form_for @new_settings do |f|
-        = f.label "Group Name"
+        = f.label "Channel Name"
         = f.text_field :name
         %br
         = f.label "Bot name"
@@ -14,7 +14,7 @@
         = f.submit
     - else
       = form_for @settings do |f|
-        = f.label "Group Name"
+        = f.label "Channel Name"
         = f.text_field :name
         %br
         = f.label "Bot name"

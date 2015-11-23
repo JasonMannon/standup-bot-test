@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1440px" height="54px" viewBox="0 0 1440 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <title>Primary</title>
+    <defs>
+        <path id="path-1" d="M0.0451833821,46.0813122 C47.7586155,31.6265374 416.742612,-32.028012 814.10174,20.3666378 C1141.97755,63.5994142 1331.26433,51.2493243 1440,25.8339723 C1440,25.8339723 1439.99344,44.6385709 1439.96976,54.012634 C959.8243,54.012634 0.00406143356,54.0209419 0.00406143356,54.0209419 C0.00406143356,54.0209419 -0.0190964028,51.245403 0.0451833821,46.0813122 Z"></path>
+    </defs>
+    <g id="Initial-LP-&amp;-Blog" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Style-Guide" sketch:type="MSArtboardGroup" transform="translate(0.000000, -2306.000000)">
+            <g id="Wave" sketch:type="MSLayerGroup" transform="translate(0.000000, 2306.000000)">
+                <g id="wave-primary">
+                    <use fill="#31AAB7" fill-rule="evenodd" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                    <use fill="none" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

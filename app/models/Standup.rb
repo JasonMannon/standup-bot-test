@@ -58,7 +58,6 @@ class Standup < ActiveRecord::Base
     before_transition on: :not_available do |standup, _|
       standup.yesterday= 'Not Available'
     end
-
   end
 
   class << self
@@ -99,18 +98,22 @@ class Standup < ActiveRecord::Base
     when 1 then Time.now.wday == 4 ? "1. What did you do on Friday?" : "1. What did you do yesterday?"
     when 2 then "2. What are you working on today?"
     when 3 then "3. Is there anything standing in your way?"
+    when 4 then "4. Do you have any exciting announcements or news to share?"
     end
   end
 
   def current_question
     if self.yesterday.nil?
-      Time.now.wday == 1 ? "<@#{self.user.slack_id}> 1. What did you do on Friday?" : "<@#{self.user.slack_id}> 1. What did you do yesterday?"
+      Time.now.wday == 1 ? "1. What did you do on Friday?" : "1. What did you do yesterday?"
 
     elsif self.today.nil?
-      "<@#{self.user.slack_id}> 2. What are you working on today?"
+      "2. What are you working on today?"
 
     elsif self.conflicts.nil?
-      "<@#{self.user.slack_id}> 3. Is there anything standing in your way?"
+      "3. Is there anything standing in your way?"
+
+    elsif self.shoutouts.nil?
+      "4. Do you have any exciting announcements or news to share?"
     end
   end
 
@@ -130,9 +133,12 @@ class Standup < ActiveRecord::Base
 
     elsif self.conflicts.nil?
       self.update_attributes(conflicts: answer)
+
+    elsif self.shoutouts.nil?
+      self.update_attributes(shoutouts: answer)
     end
 
-    if self.yesterday.present? && self.today.present? && self.conflicts.present?
+    if self.yesterday.present? && self.today.present? && self.conflicts.present? && self.shoutouts.present?
       self.finish!
     end
   end
@@ -145,6 +151,8 @@ class Standup < ActiveRecord::Base
       self.update_attributes(today: nil)
     when 3
       self.update_attributes(conflicts: nil)
+    when 4
+      self.update_attributes(shoutouts: nil)
     end
   end
 
@@ -171,5 +179,4 @@ class Standup < ActiveRecord::Base
   def settings
     Setting.first
   end
-
 end

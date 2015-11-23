@@ -38,6 +38,10 @@ gem 'masonry-rails'
 
 gem 'state_machine', git: 'git://github.com/seuros/state_machine.git'
 
+gem 'rails_12factor'
+gem 'puma'
+gem 'rack-timeout'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

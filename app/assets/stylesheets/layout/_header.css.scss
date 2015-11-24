@@ -1,0 +1,21 @@
+.navbar {
+  background-color: $light-gray;
+  height: 75px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+  float: center;
+  a {
+    color: $white;
+  }
+}
+
+.navbar-brand {
+  img {
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+  float: none !important;
+}

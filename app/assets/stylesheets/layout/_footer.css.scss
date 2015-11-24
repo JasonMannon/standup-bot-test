@@ -1,0 +1,27 @@
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.wave {
+  margin-bottom: -1px;
+  overflow: hidden;
+  img {
+    display: block;
+    margin-left: -1%;
+    width: 102%;
+  }
+}
+
+.content-wave {
+  margin-top: -1px;
+  background-color: $dark-gray;
+  height: 20px;
+  p {
+    color: $white;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}

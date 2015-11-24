@@ -1,4 +1,9 @@
 @import 'normalize-rails/normalize';
+@import 'helpers/_variables.css.scss';
+@import 'layout/_header.css.scss';
+@import 'layout/_footer.css.scss';
+@import 'pages/_standups.css.scss';
+@import 'pages/_settings.css.scss';
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
@@ -9,7 +14,7 @@ html {
 
 body {
 	height: 100%;
-	background-color: #31AAB7;
+	background-color: $headway-bg;
 	color: #222;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
@@ -19,175 +24,4 @@ body {
 	min-height: 95%;
   margin-bottom: 100px;
   padding-bottom: 100px;
-}
-
-footer{
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-}
-
-.wave {
-	margin-bottom: -1px;
-	overflow: hidden;
-}
-
-.wave img {
-	display: block;
-	margin-left: -1%;
-	width: 102%;
-}
-
-.content-wave{
-	margin-top: -1px;
-	background-color: #414141;
-	height: 20px;
-}
-
-.content-wave p{
-	color: #fff;
-	font-size: 1.2rem;
-	text-align: center;
-}
-
-.navbar {
-	background-color: #ECECEC;
-	height: 75px;
-	box-shadow: 0 4px 8px rgba(0,0,0,.25);
-	float: center;
-}
-
-.navbar a {
-	color: #fff;
-}
-
-.navbar-brand img  {
-  height:  50px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.navbar-brand {
-  margin-left: auto !important;
-  margin-right: auto !important;
-  display: block !important;
-  float: none !important;
-}
-
-.main-content {
-	margin-top: 125px;
-}
-
-.standup-date {
-	margin-bottom: 20px;
-}
-.date h2 {
-	color: #414141;
-	font-size: 2.2rem;
-	font-weight: 300;
-	margin: 0;
-}
-.date h2 strong {
-	font-weight: 700;
-}
-.date-picker {
-	text-align: right;
-}
-.date-picker a {
-	color: #fff;
-}
-.todays-date {
-	border-left: 1px solid #888;
-	border-right: 1px solid #888;
-	margin: 0 8px;
-	padding: 0 8px;
-}
-
-.standup-card {
-	display: inline-block;
-	padding-bottom: 30px;
-}
-
-.standup-card-wrap /* hack because bootstrap is dumb */ {
-	background-color: #ECECEC;
-	border-radius: 2px;
-	box-shadow: 0 1px 3px rgba(0,0,0,.2);
-	display: block;
-	padding: 0;
-	position:relative;
-}
-.standup-card-wrap .section {
-	border-bottom: 1px solid #ddd;
-	padding: 15px;
-}
-
-.standup-card-wrap {
-	margin-bottom: 15px;
-}
-.standup-card h2 {
-	color: #414141;
-	font-size: 1.7rem;
-	font-weight: 700;
-	margin-bottom: 10px;
-	margin-top: 0;
-	padding-top: 7px;
-	width: 280px;
-}
-.standup-card h3 {
-	margin: 0;
-}
-
-.name-section h2 {
-	margin: 10px 0 2px -30px;
-}
-.name-section h3 {
-	font-size: 1.6rem;
-	font-weight: 300;
-}
-
-.user-avatar {
-	border-radius: 25px;
-	display: inline-block;
-	float: left;
-	height: 50px;
-	margin-right: 10px;
-	width: 50px;
-}
-
-.avatar img {
-	border-radius: 25px;
-	float: left;
-	display: inline-block;
-	height: 50px;
-	width: 50px;
-	margin-right: 10px;
-}
-
-.name-section {
-	border-left: 5px solid #414141;
-}
-.yesterday-section {
-	border-left: 5px solid #3167B7;
-}
-.today-section {
-	border-left: 5px solid #52992F;
-}
-.blocks-section {
-	border-left: 5px solid #B73E31;
-}
-.shoutouts-section {
-	border-left: 5px solid #E9D160;
-}
-
-.vacation {
-	border-bottom: 0px! important;
-}
-
-.text-muted img {
-	height: 20px;
-}
-
-.not-active {
-  pointer-events: none;
-  cursor: default;
 }

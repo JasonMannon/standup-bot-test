@@ -1,0 +1,126 @@
+.main-content {
+  margin-top: 125px;
+}
+
+.standup-date {
+  margin-bottom: 20px;
+}
+
+.date h2 {
+  color: $dark-gray;
+  font-size: 2.2rem;
+  font-weight: 300;
+  margin: 0;
+  strong {
+    font-weight: 700;
+  }
+}
+
+.date-picker {
+  text-align: right;
+  a {
+    color: $white;
+  }
+}
+
+.todays-date {
+  border-left: 1px solid #888;
+  border-right: 1px solid #888;
+  margin: 0 8px;
+  padding: 0 8px;
+}
+
+.standup-card {
+  display: inline-block;
+  padding-bottom: 30px;
+}
+
+.standup-card-wrap {
+  background-color: $light-gray;
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  display: block;
+  padding: 0;
+  position: relative;
+  .section {
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+  }
+  margin-bottom: 15px;
+}
+
+.standup-card {
+  h2 {
+    color: $light-gray;
+    font-size: 1.7rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 0;
+    padding-top: 7px;
+    width: 280px;
+  }
+  h3 {
+    margin: 0;
+  }
+}
+
+.name-section {
+  h2 {
+    margin: 10px 0 2px -30px;
+  }
+  h3 {
+    font-size: 1.6rem;
+    font-weight: 300;
+  }
+}
+
+.user-avatar {
+  border-radius: 25px;
+  display: inline-block;
+  float: left;
+  height: 50px;
+  margin-right: 10px;
+  width: 50px;
+}
+
+.avatar img {
+  border-radius: 25px;
+  float: left;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+
+.name-section {
+  border-left: 5px solid $dark-gray;
+}
+
+.yesterday-section {
+  border-left: 5px solid $blue;
+}
+
+.today-section {
+  border-left: 5px solid $green;
+}
+
+.blocks-section {
+  border-left: 5px solid $red;
+}
+
+.shoutouts-section {
+  border-left: 5px solid $yellow;
+}
+
+.vacation {
+  border-bottom: 0px ! important;
+}
+
+.text-muted img {
+  height: 20px;
+}
+
+.not-active {
+  pointer-events: none;
+  cursor: default;
+}

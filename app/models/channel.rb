@@ -1,5 +1,4 @@
 class Channel < ActiveRecord::Base
-
   has_many :users
   has_many :standups, through: :users
 
@@ -8,7 +7,7 @@ class Channel < ActiveRecord::Base
       self.users.where(bot: false).each_with_index do |user, index|
         standup = Standup.create_if_needed(user.id, self.id)
 
-        standup.order= index + 1
+        standup.order = index + 1
 
         standup.save
       end
@@ -27,12 +26,9 @@ class Channel < ActiveRecord::Base
     self.standups.today.in_progress.first
   end
 
-  # @return [Boolean]
   def complete?
     completed_today_standups = today_standups.completed
 
     (users.count - 1) == completed_today_standups.count
   end
-
 end
-

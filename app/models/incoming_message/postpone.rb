@@ -2,13 +2,15 @@ require_relative 'simple'
 
 class IncomingMessage
   class Postpone < Simple
-
     def execute
       super
 
       @standup.skip!
 
-      @client.message channel: @message['channel'], text: "I'll get back to you at the end of standup."
+      @client.message(
+        channel: @message['channel'],
+        text: "I'll get back to you at the end of standup."
+      )
     end
 
     def validate!
@@ -18,6 +20,5 @@ class IncomingMessage
 
       super
     end
-
   end
 end

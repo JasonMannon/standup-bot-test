@@ -2,13 +2,15 @@ require_relative 'simple'
 
 class IncomingMessage
   class Delete < Simple
-
     def execute
       super
 
       @standup.delete_answer_for(@message['text'].split('').last.try(:to_i))
 
-      @client.message(channel: @message['channel'], text: 'Answer deleted')
+      @client.message(
+        channel: @message['channel'],
+        text: 'Answer deleted'
+      )
     end
 
     def validate!
@@ -18,6 +20,5 @@ class IncomingMessage
 
       super
     end
-
   end
 end

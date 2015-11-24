@@ -1,5 +1,4 @@
 class Standup < ActiveRecord::Base
-
   IDLE      = 'idle'
   ACTIVE    = 'active'
   ANSWERING = 'answering'
@@ -22,7 +21,6 @@ class Standup < ActiveRecord::Base
   delegate :slack_id, to: :user, prefix: true
 
   state_machine initial: :idle do
-
     event :init do
       transition from: :idle, to: :active
     end
@@ -48,24 +46,19 @@ class Standup < ActiveRecord::Base
     end
 
     before_transition on: :skip do |standup, _|
-      standup.order= (standup.channel.today_standups.maximum(:order) + 1) || 1
+      standup.order = (standup.channel.today_standups.maximum(:order) + 1) || 1
     end
 
     before_transition on: :vacation do |standup, _|
-      standup.yesterday= 'Vacation'
+      standup.yesterday = 'Vacation'
     end
 
     before_transition on: :not_available do |standup, _|
-      standup.yesterday= 'Not Available'
+      standup.yesterday = 'Not Available'
     end
   end
 
   class << self
-
-    # @param [Integer] user_id.
-    # @param [Integer] channel_id.
-    #
-    # @return [Standup]
     def create_if_needed(user_id, channel_id)
       return if User.find(user_id).bot?
 
@@ -75,45 +68,41 @@ class Standup < ActiveRecord::Base
 
       standup
     end
-
   end
 
-  # @return [Boolean]
   def vacation?
     yesterday == 'Vacation' && completed?
   end
 
-  # @return [Boolean]
   def not_available?
     yesterday == 'Not Available' && completed?
   end
 
-  # @return [Boolean]
   def in_progress?
     active? || answering?
   end
 
   def question_for_number(number)
     case number
-    when 1 then Time.now.wday == 4 ? "1. What did you do on Friday?" : "1. What did you do yesterday?"
-    when 2 then "2. What are you working on today?"
-    when 3 then "3. Is there anything standing in your way?"
-    when 4 then "4. Do you have any exciting announcements or news to share?"
+    when 1 then Time.now.wday == 4 ? '1. What did you do on Friday?' : '1. What did you do yesterday?'
+    when 2 then '2. What are you working on today?'
+    when 3 then '3. Is there anything standing in your way?'
+    when 4 then '4. Do you have any exciting announcements or news to share?'
     end
   end
 
   def current_question
     if self.yesterday.nil?
-      Time.now.wday == 1 ? "1. What did you do on Friday?" : "1. What did you do yesterday?"
+      Time.now.wday == 1 ? '1. What did you do on Friday?' : '1. What did you do yesterday?'
 
     elsif self.today.nil?
-      "2. What are you working on today?"
+      '2. What are you working on today?'
 
     elsif self.conflicts.nil?
-      "3. Is there anything standing in your way?"
+      '3. Is there anything standing in your way?'
 
     elsif self.shoutouts.nil?
-      "4. Do you have any exciting announcements or news to share?"
+      '4. Do you have any exciting announcements or news to share?'
     end
   end
 
@@ -121,8 +110,8 @@ class Standup < ActiveRecord::Base
     user_ids = answer.scan(/\<(.*?)\>/)
     if user_ids
       user_ids.each do |user_id|
-        user = User.find_by_slack_id(user_id.first.gsub(/@/, ""))
-        answer = user ? answer.gsub("<#{user_id.flatten.first}>", user.full_name) : answer.gsub("<#{user_id.flatten.first}>", "User Not Available")
+        user = User.find_by_slack_id(user_id.first.gsub(/@/, ''))
+        answer = user ? answer.gsub("<#{user_id.flatten.first}>", user.full_name) : answer.gsub("<#{user_id.flatten.first}>", 'User Not Available')
       end
     end
     if self.yesterday.nil?

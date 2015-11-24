@@ -2,7 +2,6 @@ require_relative 'simple'
 
 class IncomingMessage
   class Status < Simple
-
     def execute
       super
 
@@ -10,9 +9,10 @@ class IncomingMessage
         "#{standup.status}\n"
       end
 
-      @client.message channel: @message['channel'], text: message.join
+      @client.message(
+        channel: @message['channel'],
+        text: message.join
+      )
     end
-
   end
 end
-

@@ -2,7 +2,6 @@ require_relative 'base'
 
 class IncomingMessage
   class Compound < Base
-
     def initialize(client, message, standup)
       super(client, message, standup)
 
@@ -24,6 +23,5 @@ class IncomingMessage
 
       super
     end
-
   end
 end

@@ -1,6 +1,5 @@
 class IncomingMessage
   class Base
-
     class InvalidCommand < StandardError; end
 
     def initialize(client, message, standup)
@@ -26,6 +25,5 @@ class IncomingMessage
     def user
       raise 'Missing implementation #user'
     end
-
   end
 end

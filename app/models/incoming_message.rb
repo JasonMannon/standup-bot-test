@@ -1,5 +1,4 @@
 class IncomingMessage
-
   delegate :yes?,
            :vacation?,
            :skip?,
@@ -38,7 +37,10 @@ class IncomingMessage
     end
 
   rescue Base::InvalidCommand => e
-    @client.message(channel: @message['channel'], text: e.message)
+    @client.message(
+      channel: @message['channel'],
+      text: e.message
+    )
   end
 
   def start_standup
@@ -47,10 +49,16 @@ class IncomingMessage
     if standup.idle?
       standup.init!
 
-      @client.message(channel: @message['channel'], text: I18n.t('activerecord.models.incoming_message.standup_started'))
+      @client.message(
+        channel: @message['channel'],
+        text: I18n.t('activerecord.models.incoming_message.standup_started')
+      )
 
-      @client.message(channel: @message['channel'],
-                      text: I18n.t('activerecord.models.incoming_message.welcome', user: current_user.slack_id))
+      @client.message(
+        channel: @message['channel'],
+        text:    I18n.t('activerecord.models.incoming_message.welcome',
+                        user:    current_user.slack_id)
+      )
     else
       next_user
     end
@@ -63,14 +71,20 @@ class IncomingMessage
     elsif (next_standup = channel.pending_standups.first)
       next_standup.init!
 
-      @client.message(channel: @message['channel'],
-                      text: I18n.t('activerecord.models.incoming_message.welcome', user: next_standup.user_slack_id))
+      @client.message(
+        channel: @message['channel'],
+        text:    I18n.t('activerecord.models.incoming_message.welcome',
+                        user: next_standup.user_slack_id)
+      )
     end
   end
 
   def complete_standup
-    @client.message channel: @message['channel'], text: I18n.t('activerecord.models.incoming_message.resume', url: settings.web_url)
-
+    @client.message(
+      channel: @message['channel'],
+      text:    I18n.t('activerecord.models.incoming_message.resume',
+                      url: settings.web_url)
+    )
     @client.stop!
   end
 
@@ -115,9 +129,7 @@ class IncomingMessage
     @command = klass.new(@client, @message, standup) if klass
   end
 
-  # @return [MessageType]
   def message_type
     @message_type ||= MessageType.new(@message['text'])
   end
-
 end

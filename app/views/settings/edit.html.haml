@@ -1,6 +1,4 @@
-= form_for @settings do |f|
-  = f.text_field :name
-  %br
-  = f.text_field :bot_id
-  %br
+= simple_form_for @settings do |f|
+  = f.input :name
+  = f.input :bot_id
   = f.submit

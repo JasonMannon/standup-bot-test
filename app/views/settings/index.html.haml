@@ -1,26 +1,13 @@
-.container
-  .text-center
-    - if @settings.nil?
-      = form_for @new_settings do |f|
-        = f.label "Channel Name"
-        = f.text_field :name
-        %br
-        = f.label "Bot name"
-        = f.text_field :bot_name
-        %br
-        = f.label "Web Url"
-        = f.text_field :web_url
-        %br
-        = f.submit
-    - else
-      = form_for @settings do |f|
-        = f.label "Channel Name"
-        = f.text_field :name
-        %br
-        = f.label "Bot name"
-        = f.text_field :bot_name
-        %br
-        = f.label "Web Url"
-        = f.text_field :web_url
-        %br
-        = f.submit class: "btn btn-default"
+.text-center
+  - if @settings.nil?
+    = simple_form_for @new_settings do |f|
+      = f.input :name, label: 'Channel Name'
+      = f.input :bot_name, label: 'Bot name'
+      = f.input :web_url, label: 'Web Url'
+      = f.button :submit
+  - else
+    = simple_form_for @settings do |f|
+      = f.input :name, label: 'Channel Name'
+      = f.input :bot_name, label: 'Bot name'
+      = f.input :web_url, label: 'Web Url'
+      = f.button :submit

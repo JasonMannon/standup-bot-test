@@ -1,3 +1,7 @@
+@import 'normalize-rails/normalize';
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
 html {
 	font-size: 62.5%;
 	height: 100%;
@@ -12,8 +16,8 @@ body {
 }
 
 .wrapper {
-	min-height: 80%;
-  margin-bottom: -100px;
+	min-height: 95%;
+  margin-bottom: 100px;
   padding-bottom: 100px;
 }
 
@@ -38,19 +42,18 @@ footer{
 .content-wave{
 	margin-top: -1px;
 	background-color: #414141;
-	height: 200px;
+	height: 20px;
 }
 
 .content-wave p{
-	padding-top: 60px;
 	color: #fff;
-	font-size: 1.4rem;
+	font-size: 1.2rem;
 	text-align: center;
 }
 
 .navbar {
 	background-color: #ECECEC;
-	height: 105px;
+	height: 75px;
 	box-shadow: 0 4px 8px rgba(0,0,0,.25);
 	float: center;
 }
@@ -60,6 +63,7 @@ footer{
 }
 
 .navbar-brand img  {
+  height:  50px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -71,7 +75,7 @@ footer{
 }
 
 .main-content {
-	margin-top: 150px;
+	margin-top: 125px;
 }
 
 .standup-date {

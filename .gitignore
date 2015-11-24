@@ -11,4 +11,7 @@
 /log/*
 !/log/.keep
 /tmp
+/config/database.yml
+.rubocop.yml
+.rubocop_todo.yml
 .env

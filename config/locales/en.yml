@@ -12,13 +12,12 @@ en:
 
         help: |
           Standup-bot help.
-               Admin Commands.
+               User Commands.
                      • -start                                   Begin Standup.
                      • -vacation: @user          Skip users standup for the day.
                      • -skip: @user                    Place user at the end of standup.
                      • -n/a: @user                       Skip users standup for the day.
                      • -quit-standup                 Quit standup.
-               User Commands.
                      • -yes                                       Begin your standup.
                      • -skip                                     Skip your standup until the end of standup.
                      • -status                                Skip your standup until the end of standup.

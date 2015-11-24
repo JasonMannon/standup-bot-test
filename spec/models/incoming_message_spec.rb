@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe IncomingMessage do
-
   let(:text)     { Faker::Name.name }
   let(:channel)  { create(:channel) }
   let(:user)     { create(:user) }
@@ -122,5 +121,4 @@ describe IncomingMessage do
       end
     end
   end
-
 end

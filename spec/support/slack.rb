@@ -6,7 +6,7 @@ class SlackMock
   def self.client_for(users)
     client = Slack::RealTime::Client.new
 
-    groups = [ { name: setting.name, members: users }.with_indifferent_access ]
+    groups = [{ name: setting.name, members: users }.with_indifferent_access]
 
     slack_users = users.map do |user|
       { id: user.slack_id, profile: { image_72: Faker::Avatar.image } }.with_indifferent_access
@@ -24,6 +24,4 @@ class SlackMock
   def self.setting
     Setting.first || FactoryGirl.create(:setting)
   end
-
 end
-

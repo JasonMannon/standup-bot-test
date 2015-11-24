@@ -25,18 +25,16 @@ Messaging tools like Slack changed our work world. Standup changed our meetings.
 
 
 #### Commands:
+  * `-start` Begins standup.
   * `-skip`  Skips your turn until the end of standup.
   * `-yes`   Agrees to start your standup.
   * `-help`  Displays standup-bot commands in your group.
   * `-edit: #(1,2,3)` Edit your answer for the day.
   * `-delete: #(1,2,3)` Delete your answer for the day.
-
-  * ##### Admin only Commands (Admin is determined by user who enters "-Start" Command)
-    * `-vacation: @user`  Skip users standup for the day.
-    * `-skip: @user`  Place user at the end of standup.
-    * `-n/a: @user`   Skips users standup for the day
-    * `-quit-standup` Quit standup.
-    * `-start` Begins standup.
+  * `-vacation: @user`  Skip users standup for the day.
+  * `-skip: @user`  Place user at the end of standup.
+  * `-n/a: @user`   Skips users standup for the day
+  * `-quit-standup` Quit standup.
 
 
 ##### How to make a pull request:

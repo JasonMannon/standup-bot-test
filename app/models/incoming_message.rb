@@ -42,7 +42,6 @@ class IncomingMessage
   end
 
   def start_standup
-    current_user.mark_as_admin!
     channel.start_today_standup!
 
     if standup.idle?
@@ -70,7 +69,6 @@ class IncomingMessage
   end
 
   def complete_standup
-    User.admin.try(:update_attributes, { admin: false })
     @client.message channel: @message['channel'], text: I18n.t('activerecord.models.incoming_message.resume', url: settings.web_url)
 
     @client.stop!

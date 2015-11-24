@@ -1,81 +1,57 @@
-!!!
-%html{:lang => "en"}
-  %head
-    %meta{:charset => "utf-8"}/
-    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
-    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
-    %title Headway | Daily Standup
-    %link{:href => "https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic", :rel => "stylesheet", :type => "text/css"}/
+.main-content
+  .row.standup-date
+    .col-md-6.date
+      %h2
+        %strong
+          = @date_string
+        = @date.strftime('%d')
+        = @date.strftime('%b')
+    .col-md-6.date-picker
+      %a.previous-date
+        = link_to 'Previous Day', standups_url(:date => @date.prev_day)
+      - if @date == Date.today
+        |
+        %a.not-active Today
+      - else
+        %a.todays-date{:href => root_url} Today
+        %a.next-date
+          = link_to 'Next Day', standups_url(:date => @date.next_day)
 
-  %body
-    .wrapper
-      %nav.navbar.navbar-fixed-top
-        .container
-          .navbar-brand
-            = image_tag('hw-logo.svg')
-      .container.main-content
-        .row.standup-date
-          .col-md-6.date
-            %h2
-              %strong
-                = @date_string
-              = @date.strftime('%d')
-              = @date.strftime('%b')
-          .col-md-6.date-picker
-            %a.previous-date
-              = link_to 'Previous Day', standups_url(:date => @date.prev_day)
-            - if @date == Date.today
-              |
-              %a.not-active Today
-            - else
-              %a.todays-date{:href => root_url} Today
-              %a.next-date
-                = link_to 'Next Day', standups_url(:date => @date.next_day)
-
-        .masonry-container.row.clearfix
-          - @standups.each do |standup|
-            .col-md-4.standup-card.item
-              .standup-card-wrap
-                .name-section.section.clearfix
-                  .row
-                    .col-lg-3.avatar
-                      = image_tag(standup.user.avatar_url)
-                    .col-lg-9
-                      %h2
-                        = standup.user.nickname
-                - if standup.today.nil?
-                  .vacation.section
-                    %br
-                    .text-center
-                      %b
-                        = standup.yesterday
-                - else
-                  .yesterday-section.section
-                    %h2 What I worked on yesterday:
-                    %ul
-                      %li
-                        = standup.yesterday.tr("<>","").gsub(/\n/, '<br><li>').html_safe
-                  .today-section.section
-                    %h2 What I am working on today:
-                    %ul
-                      %li
-                        = standup.today.tr("<>","").gsub(/\n/, '<br><li>').html_safe unless standup.today.nil?
-                  .blocks-section.section
-                    %h2 What is in my way:
-                    %ul
-                      %li
-                        = standup.conflicts.tr("<>","").gsub(/\n/, '<br><li>').html_safe unless standup.today.nil?
-                  .shoutouts-section.section
-                    %h2  Exciting announcements or news?
-                    %ul
-                      %li
-                        = standup.shoutouts.tr("<>","").gsub(/\n/, '<br><li>').html_safe unless standup.today.nil?
-
-
-  %footer
-    .wave
-      = image_tag('wave-secondary.svg')
-      .content-wave
-        %p &copy; Copyright Headway, Inc. <br> All Rigths Reserved.
-        %p Originally made by So Fetch
-
+  .masonry-container.row.clearfix
+    - @standups.each do |standup|
+      .col-md-4.standup-card.item
+        .standup-card-wrap
+          .name-section.section.clearfix
+            .row
+              .col-lg-3.avatar
+                = image_tag(standup.user.avatar_url)
+              .col-lg-9
+                %h2
+                  = standup.user.nickname
+          - if standup.today.nil?
+            .vacation.section
+              %br
+              .text-center
+                %b
+                  = standup.yesterday
+          - else
+            .yesterday-section.section
+              %h2 What I worked on yesterday:
+              %ul
+                %li
+                  = standup.yesterday.tr("<>","").gsub(/\n/, '<br><li>').html_safe
+            .today-section.section
+              %h2 What I am working on today:
+              %ul
+                %li
+                  = standup.today.tr("<>","").gsub(/\n/, '<br><li>').html_safe unless standup.today.nil?
+            .blocks-section.section
+              %h2 What is in my way:
+              %ul
+                %li
+                  = standup.conflicts.tr("<>","").gsub(/\n/, '<br><li>').html_safe unless standup.today.nil?
+            .shoutouts-section.section
+              %h2  Exciting announcements or news?
+              %ul
+                %li
+                  = standup.shoutouts.tr("<>","").gsub(/\n/, '<br><li>').html_safe unless standup.today.nil?

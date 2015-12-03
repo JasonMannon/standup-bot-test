@@ -39,6 +39,8 @@ end
 group :staging, :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'puma'
+  gem 'rack-timeout'
 end
 
 group :test do

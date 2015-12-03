@@ -147,18 +147,18 @@ class Standup < ActiveRecord::Base
 
   def status
     if idle?
-      "<@#{self.user.slack_id}> is in the queue waiting to do his/her standup."
+      "<@#{self.user.slack_id}> is in the queue waiting to do today's standup."
     elsif active?
-      "<@#{self.user.slack_id}> needs to answer if he/she wants to do his/her standup."
+      "<@#{self.user.slack_id}> still needs to answer today's standup."
     elsif answering?
-      "<@#{self.user.slack_id}> is doing his/her standup right now."
+      "<@#{self.user.slack_id}> is doing today's standup right now."
     elsif completed?
       if vacation?
         "<@#{self.user.slack_id}> is on vacation."
       elsif not_available?
         "<@#{self.user.slack_id}> is not available."
       else
-        "<@#{self.user.slack_id}> already did his/her standup."
+        "<@#{self.user.slack_id}> already did today's standup."
       end
     end
   end
